@@ -49,18 +49,10 @@ df["sensor_value"] = df["sensor_value"].astype(float)  # convert value column to
 # separate each weather station into different table
 
 ws1 = df[df["sensor_id"] == "WeatherStation1"]
-ws2 = df[df["sensor_id"] == "WeatherStation2"]
-ws3 = df[df["sensor_id"] == "WeatherStation3"]
-ws4 = df[df["sensor_id"] == "WeatherStation4"]
 
 # manipulate tables to have sensor types as columns
 
 ws1 = ws1.pivot_table(index=["event_date", "event_date_dp"], columns="event_type", values="sensor_value").reset_index()
-ws2 = ws2.pivot_table(index=["event_date", "event_date_dp"], columns="event_type", values="sensor_value").reset_index()
-ws3 = ws3.pivot_table(index=["event_date", "event_date_dp"], columns="event_type", values="sensor_value").reset_index()
-ws4 = ws4.pivot_table(index=["event_date", "event_date_dp"], columns="event_type", values="sensor_value").reset_index()
-
-ws_list = [ws1, ws2, ws3, ws4]
 
 layout = html.Div(children=[
 
