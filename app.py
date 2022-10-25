@@ -7,6 +7,7 @@ from dash import Dash, dcc, html
 external_stylesheets = 'https://rsms.me/inter/inter.css'
 
 app = Dash(__name__, use_pages=True)
+server = app.server
 
 colors = {
     'background_blue': '#0128b900',
